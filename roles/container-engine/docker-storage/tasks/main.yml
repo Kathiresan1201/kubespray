@@ -37,6 +37,11 @@
     name: lvm2
     state: present
 
+- name: sshpass install
+  yum:
+    name: sshpass
+    state: present
+
 - name: docker-storage-setup | install and run container-storage-setup
   become: yes
   script: |
