@@ -421,9 +421,8 @@ loadbalancer_apiserver_localhost: "{{ loadbalancer_apiserver is not defined }}"
 loadbalancer_apiserver_type: "nginx"
 # applied if only external loadbalancer_apiserver is defined, otherwise ignored
 apiserver_loadbalancer_domain_name: "lb-apiserver.kubernetes.local"
-kube_apiserver_endpoint: |-
-#       https://{{ first_kube_master }}:{{ kube_apiserver_port }}
-        https://{{ kube_apiserver_bind_address  }}:{{ kube_apiserver_port }}
+kube_apiserver_endpoint: >-
+  https://{{ kube_apiserver_bind_address  }}:{{ kube_apiserver_port }}
   
 kube_apiserver_insecure_endpoint: >-
   http://{{ kube_apiserver_insecure_bind_address | regex_replace('0\.0\.0\.0','127.0.0.1') }}:{{ kube_apiserver_insecure_port }}
