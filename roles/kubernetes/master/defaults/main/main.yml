@@ -71,6 +71,11 @@ audit_log_name: audit-logs
 audit_log_hostpath: /var/log/kubernetes/audit
 audit_log_mountpath: "{{ audit_log_path | dirname }}"
 
+
+
+# audit webhook support
+kubernetes_audit_webhook: false
+
 # audit policy hostpath
 audit_policy_name: audit-policy
 audit_policy_hostpath: "{{ audit_policy_file | dirname }}"
